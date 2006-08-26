@@ -156,6 +156,12 @@ Exports the said functions.
 Yitzchak Scott-Thoennes provided the know-how needed to get the name of a sub
 reference.
 
+=head1 VERSION CONTROL
+
+This module is maintained using Darcs. You can get the latest version from
+L<http://nothingmuch.woobling.org/Devel-Sub-Which/>, and use C<darcs send> to
+commit changes.
+
 =head1 AUTHOR
 
 Yuval Kogman <nothingmuch@woobling.org>
