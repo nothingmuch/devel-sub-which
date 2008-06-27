@@ -1,5 +1,9 @@
 Revision history for Perl extension Devel::Sub::Which
 
+0.03
+	- use Sub::Identify instead of B
+	- Switch to EUMM
+
 0.02  Tue Nov 23 18:22:17 IST 2004
 	- Fixed doc bugs, and a problem with the implementation of import, thanks
 	  to [bart] from perlmonks.
