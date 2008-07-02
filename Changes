@@ -1,5 +1,9 @@
 Revision history for Perl extension Devel::Sub::Which
 
+0.04
+	- The Makefile.PL Module::Build generated said require 5.6.0, which older
+	  perls think is a module. *sigh*
+
 0.03
 	- use Sub::Identify instead of B
 	- Switch to EUMM
