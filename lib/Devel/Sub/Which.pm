@@ -7,7 +7,7 @@ package Devel::Sub::Which;
 use strict;
 use warnings;
 
-our $VERSION = "0.04";
+our $VERSION = "0.05";
 
 use Sub::Identify qw(sub_fullname);
 use Scalar::Util qw/reftype/;
