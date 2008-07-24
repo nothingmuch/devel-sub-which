@@ -5,7 +5,7 @@ use warnings;
 
 use Test::More tests => 2;
 
-BEGIN{ use_ok("Devel::Sub::Which") }
+use ok "Devel::Sub::Which";
 
 # bart found this in 0.01's import
 {

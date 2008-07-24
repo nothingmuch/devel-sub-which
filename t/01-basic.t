@@ -5,7 +5,7 @@ use warnings;
 
 use Test::More tests => 4;
 
-use_ok("Devel::Sub::Which");
+use ok "Devel::Sub::Which";
 
 {
 	package foo;

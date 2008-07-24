@@ -11,7 +11,7 @@ BEGIN {
 	}
 }
 
-use_ok("Devel::Sub::Which");
+use ok "Devel::Sub::Which";
 
 dies_ok {
 	Devel::Sub::Which::ref_to_name("not a ref");
