@@ -10,6 +10,7 @@ WriteMakefile (
 		'Test::Exception' => 0,
 		'Test::More' => 0,
 		'Sub::Identify' => 0,
+		'Sub::Exporter' => 0,
 	},
 	'INSTALLDIRS' => 'site',
 	'EXE_FILES' => [],

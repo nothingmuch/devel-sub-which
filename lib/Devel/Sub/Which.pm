@@ -13,20 +13,12 @@ use Sub::Identify qw(sub_fullname);
 use Scalar::Util qw/reftype/;
 use Carp qw/croak/;
 
-use base qw/Exporter/;
-our @EXPORT_OK = qw/which ref_to_name/;
-
-sub import {
-	my $pkg = shift;
-
-	my $universal = undef;
-
-	@_ = ($pkg, grep { not ($_ eq ":universal" and $universal=1) } @_);
-
-	*UNIVERSAL::which = \&which if $universal;
-
-	goto \&Exporter::import;
-}
+use Sub::Exporter -setup => {
+	exports => [qw(which ref_to_name)],
+	collectors => {
+		':universal' => sub { *UNIVERSAL::which = \&which; return 1 },
+	}
+};
 
 sub which ($;$) {
 	my $obj = shift;
@@ -118,7 +110,7 @@ reporting.
 =item OBJ->which( METHOD )
 
 This method determines which subroutine reference will be executed for METHOD,
-using L<UNIVERSAL::can> (or any overriding implementation), 
+using L<UNIVERSAL::can> (or any overriding implementation),
 
 You can get this method by importing it as a function into a class, or using
 the C<:universal> export.
@@ -140,7 +132,10 @@ just delegates to L<Sub::Identify>
 
 =head1 EXPORTS
 
-Nothing is exported by default. These parameters will have an effect:
+
+Nothing is exported by default.
+
+This module uses L<Sub::Exporter>, so exports can be renamed, etc.
 
 =over 4
 
@@ -152,6 +147,10 @@ it on any object.
 =item which
 
 You can import this into a class and then use it as a method.
+
+=item ref_to_name
+
+Provided for compatibility. Just use L<Sub::Identify>.
 
 =back
 
