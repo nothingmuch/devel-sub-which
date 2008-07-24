@@ -34,11 +34,12 @@ sub which ($;$) {
 
 	return sub_fullname($obj) if not defined $sub; # just a sub, no object
 
-	if (ref $sub and reftype $sub eq 'CODE'){ # this is not documented, it's for sanity.
+	if (ref($sub) and reftype($sub) eq 'CODE'){
 		return sub_fullname($sub);
 	} else {
 		my $ref = $obj->can($sub);
-		croak("$obj\->can($sub) did not return a code reference") unless ref $ref and reftype $ref eq 'CODE';
+		croak("$obj\->can($sub) did not return a code reference")
+			unless ref($ref) and reftype($ref) eq 'CODE';
 		return sub_fullname($ref);
 	}
 }
@@ -46,7 +47,7 @@ sub which ($;$) {
 sub ref_to_name ($) {
 	my $sub = shift;
 
-	unless (ref $sub and reftype $sub eq 'CODE'){ # this is not documented, it's for sanity.
+	unless (ref($sub) and reftype($sub) eq 'CODE'){
 		croak "$sub is not a code reference";
 	}
 
